@@ -47,6 +47,9 @@ public class PmsBrandController {
         return commonResult;
     }
 
+    /**
+     * 这才是update方法的标准写法，id和修改的内容分开传。
+     */
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {

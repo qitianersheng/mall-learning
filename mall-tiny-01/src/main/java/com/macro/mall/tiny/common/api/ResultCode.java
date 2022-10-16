@@ -2,6 +2,10 @@ package com.macro.mall.tiny.common.api;
 
 /**
  * 枚举了一些常用API操作码
+ * 主要是要展示错误，所以继承IErrorCode.
+ * 但他这里是枚举去继承接口哦。【依赖抽象而不依赖具体的类】。这个就是设计原则。
+ * 原来枚举类也可以继承接口。
+ *
  * Created by macro on 2019/4/19.
  */
 public enum ResultCode implements IErrorCode {

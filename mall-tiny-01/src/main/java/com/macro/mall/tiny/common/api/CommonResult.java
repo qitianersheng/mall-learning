@@ -2,6 +2,8 @@ package com.macro.mall.tiny.common.api;
 
 /**
  * 通用返回对象
+ * 跟马拉松的Response类功能一样。
+ * 泛型类
  * Created by macro on 2019/4/19.
  */
 public class CommonResult<T> {
