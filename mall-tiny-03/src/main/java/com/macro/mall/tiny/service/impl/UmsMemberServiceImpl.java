@@ -25,13 +25,20 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public CommonResult generateAuthCode(String telephone) {
+        /**
+         *  TODO:验证码生成方法应该抽出来作为工具。因为不止手机验证码需要，也有邮件验证码等。
+         *  如果用户量庞大，要不要考虑验证码重复的问题？ 不用，因为手机号码够长。用户很难在一分钟内爆破。
+         */
+
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < 6; i++) {
             sb.append(random.nextInt(10));
         }
         //验证码绑定手机号并存储到redis
+
         redisService.set(REDIS_KEY_PREFIX_AUTH_CODE + telephone, sb.toString());
+        //TODO:如果系统在可以挂掉了，那么验证码就永久了
         redisService.expire(REDIS_KEY_PREFIX_AUTH_CODE + telephone, AUTH_CODE_EXPIRE_SECONDS);
         return CommonResult.success(sb.toString(), "获取验证码成功");
     }

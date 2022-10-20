@@ -10,6 +10,7 @@ public interface UmsMemberService {
 
     /**
      * 生成验证码
+     * TODO:service不应该直接返回CommonResult对象
      */
     CommonResult generateAuthCode(String telephone);
 
